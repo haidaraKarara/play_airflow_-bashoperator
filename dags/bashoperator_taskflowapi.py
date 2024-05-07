@@ -8,7 +8,7 @@ from pendulum import datetime
 LOOK_EXTERNAL_FILE = "./include" # The best way is to declare a variable from Airflow UI
 
 @dag(
-    dag_id="bashOperator_TaskFlowAPI",  # You define you own name
+    dag_id="bashoperator_taskflow_api",  # You define you own name
     start_date=datetime(2024, 1, 1),
     schedule="@daily",
     tags=["bashOperator"],
@@ -19,7 +19,7 @@ LOOK_EXTERNAL_FILE = "./include" # The best way is to declare a variable from Ai
     # include path to look for external files
     template_searchpath=LOOK_EXTERNAL_FILE,
 )
-def bashOperator_TaskFlowAPI():
+def bashoperator_taskflow_api():
     
     @task
     def upstream_task():
@@ -53,4 +53,4 @@ def bashOperator_TaskFlowAPI():
 
     bash_task(dog_owner_data=upstream_task())
     
-bashOperator_TaskFlowAPI()
+bashoperator_taskflow_api()
